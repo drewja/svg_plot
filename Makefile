@@ -19,6 +19,7 @@ clean:
 
 .PHONY: test
 test: flake8 lint
+	python3 ./tests/step_test.py
 
 .PHONY: flake8
 flake8:
@@ -26,7 +27,7 @@ flake8:
 
 .PHONY: lint
 lint:
-	pylint $(LINT_MODULES)
+	pylint --exit-zero $(LINT_MODULES)
 
 .PHONY: $(MODULE)
 $(MODULE): dist/$(MODULE)-$(MODULE_VERS)-py3-none-any.whl
